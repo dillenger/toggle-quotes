@@ -6,13 +6,25 @@
         "name": "toggleQuotes",
         "type": "function",
         "async": true,
-        "parameters": []
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "windowId",
+            "optional": true
+          }
+        ]
       },
       {
         "name": "loadButton",
         "type": "function",
         "async": true,
-        "parameters": []
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "windowId",
+            "optional": true
+          }
+        ]
       }
     ]
   }
