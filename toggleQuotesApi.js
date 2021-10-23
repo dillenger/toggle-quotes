@@ -3,51 +3,50 @@ var { ExtensionSupport } = ChromeUtils.import("resource:///modules/ExtensionSupp
 var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 var xulAppInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
 
-let recentWindow = Services.wm.getMostRecentWindow("mail:3pane");
-
-let doToggle = undefined;
-
 var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {
     return {
       toggleQuotesApi: {
-        async toggleQuotes() {
-          let recentContent = recentWindow.document.getElementById("messagepane").contentWindow;
-          let otherQuotes = recentContent.document.querySelectorAll("blockquote");
-          let firstQuote = recentContent.document.querySelector("blockquote");
-          let messagePane = recentWindow.document.getElementById("messagepane");
-          if (firstQuote) {
-            if (messagePane.getAttribute("quotescollapsed") == "collapsed") {
-              messagePane.removeAttribute("quotescollapsed");
-              for (let e of otherQuotes) {e.setAttribute("style", "overflow: unset; height: unset;");};
-              if (xulAppInfo.version < "91") {
-                firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                  background-image: url(chrome://global/skin/icons/twisty-expanded.svg); padding-block: .5ex;\
-                  background-repeat: no-repeat; background-position-x: 2px; background-position-y: .4ex; background-size: 1em;");
-              } else {
-                firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                  background-image: url(chrome://global/skin/icons/arrow-down-12.svg); padding-bottom: .6ex;\
-                  background-repeat: no-repeat; background-position-x: 1px; background-position-y: .4ex; background-size: 1em;");
-              }
-            } else {
-              messagePane.setAttribute("quotescollapsed", "collapsed");
-              messagePane.setAttribute("persist", "quotescollapsed");
-              for (let e of otherQuotes) {e.setAttribute("style", "overflow: hidden; height: 2ex; padding-bottom: .6ex;");};
-              if (xulAppInfo.version < "91") {
-                firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
-                  background-image: url(chrome://global/skin/icons/twisty-collapsed.svg); padding-block: .5ex;\
-                  background-repeat: no-repeat;background-position-x: 3px; background-position-y: center; background-size: 1em;");
-              } else {
-                firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
-                  background-image: url(chrome://global/skin/icons/arrow-right-12.svg); padding-bottom: .6ex;\
-                  background-repeat: no-repeat;background-position-x: 1px; background-position-y: center; background-size: 1em;");
-              }
-            }
-          };
-        },
-        async loadButton() {
+        async toggleQuotes(windowId) {
+          let recentWindow = context.extension.windowManager.get(windowId, context).window;
           if (recentWindow) {
-            doToggle = () => this.toggleQuotes();
+            let recentContent = recentWindow.document.getElementById("messagepane").contentWindow;
+            let otherQuotes = recentContent.document.querySelectorAll("blockquote");
+            let firstQuote = recentContent.document.querySelector("blockquote");
+            let messagePane = recentWindow.document.getElementById("messagepane");
+            if (firstQuote) {
+              if (messagePane.getAttribute("quotescollapsed") == "collapsed") {
+                messagePane.removeAttribute("quotescollapsed");
+                for (let e of otherQuotes) {e.setAttribute("style", "overflow: unset; height: unset;");};
+                if (xulAppInfo.version < "91") {
+                  firstQuote.setAttribute("style", "overflow: unset; height: unset;\
+                    background-image: url(chrome://global/skin/icons/twisty-expanded.svg); padding-block: .5ex;\
+                    background-repeat: no-repeat; background-position-x: 2px; background-position-y: .4ex; background-size: 1em;");
+                } else {
+                  firstQuote.setAttribute("style", "overflow: unset; height: unset;\
+                    background-image: url(chrome://global/skin/icons/arrow-down-12.svg); padding-bottom: .6ex;\
+                    background-repeat: no-repeat; background-position-x: 1px; background-position-y: .4ex; background-size: 1em;");
+                }
+              } else {
+                messagePane.setAttribute("quotescollapsed", "collapsed");
+                messagePane.setAttribute("persist", "quotescollapsed");
+                for (let e of otherQuotes) {e.setAttribute("style", "overflow: hidden; height: 2ex; padding-bottom: .6ex;");};
+                if (xulAppInfo.version < "91") {
+                  firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
+                    background-image: url(chrome://global/skin/icons/twisty-collapsed.svg); padding-block: .5ex;\
+                    background-repeat: no-repeat;background-position-x: 3px; background-position-y: center; background-size: 1em;");
+                } else {
+                  firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
+                    background-image: url(chrome://global/skin/icons/arrow-right-12.svg); padding-bottom: .6ex;\
+                    background-repeat: no-repeat;background-position-x: 1px; background-position-y: center; background-size: 1em;");
+                }
+              }
+            };
+          }
+        },
+        async loadButton(windowId) {
+          let recentWindow = context.extension.windowManager.get(windowId, context).window;
+          if (recentWindow) {
             recentWindow.addEventListener('DOMContentLoaded', (event) => {
               let recentContent = recentWindow.document.getElementById("messagepane").contentWindow;
               if (recentContent == null) return;
@@ -61,7 +60,7 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
               toggleButton.setAttribute("style", "background-color: transparent;\
                 border-color: transparent; margin-inline: -5px 2px; padding-top: 10px;");
 
-              toggleButton.addEventListener("click", doToggle);
+              toggleButton.addEventListener("click", () => this.toggleQuotes(windowId));
 
               if (firstQuote) {
                 firstQuote.insertAdjacentElement("afterbegin", toggleButton);
