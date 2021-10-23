@@ -3,8 +3,6 @@ var { ExtensionSupport } = ChromeUtils.import("resource:///modules/ExtensionSupp
 var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 var xulAppInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
 
-let doToggle = undefined;
-
 var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {
     return {
@@ -49,7 +47,6 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
         async loadButton(windowId) {
           let recentWindow = context.extension.windowManager.get(windowId, context).window;
           if (recentWindow) {
-            doToggle = () => this.toggleQuotes();
             recentWindow.addEventListener('DOMContentLoaded', (event) => {
               let recentContent = recentWindow.document.getElementById("messagepane").contentWindow;
               if (recentContent == null) return;
@@ -63,7 +60,7 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
               toggleButton.setAttribute("style", "background-color: transparent;\
                 border-color: transparent; margin-inline: -5px 2px; padding-top: 10px;");
 
-              toggleButton.addEventListener("click", doToggle);
+              toggleButton.addEventListener("click", () => this.toggleQuotes(windowId));
 
               if (firstQuote) {
                 firstQuote.insertAdjacentElement("afterbegin", toggleButton);

@@ -5,3 +5,5 @@ browser.messageDisplayAction.onClicked.addListener((tab, info) => {
 browser.messageDisplay.onMessageDisplayed.addListener((tab, message) => {
   browser.toggleQuotesApi.loadButton(tab.windowId);
 });
+
+browser.toggleQuotesApi.loadButton();
