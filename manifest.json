@@ -3,7 +3,7 @@
   "name": "Toggle Quotes",
   "description": "Adds a Toggle Quotes button, allows to collapse quotes",
   "homepage_url": "https://addons.thunderbird.net/en-US/thunderbird/addon/toggle-quotes/",
-  "version": "3.1",
+  "version": "3.2",
   "experiment_apis": {
     "toggleQuotesApi": {
       "schema": "schema.json",
@@ -25,7 +25,7 @@
       "toggleQuotes.js"
     ]
   },
-  "browser_action": {
+  "message_display_action": {
     "default_title": "Toggle Quotes",
     "default_label": "Quotes",
     "default_icon": "toggleQuotes24.png"
@@ -41,11 +41,14 @@
     "32": "toggleQuotes32.png"
   },
   "commands": {
-    "_execute_browser_action": {
+    "_execute_message_display_action": {
       "suggested_key": {
         "default": "Alt+Q"
       },
       "description": "Toggle all quotes"
     }
-  }
+  },
+  "permissions": [
+    "messagesRead"
+  ]
 }
