@@ -62,11 +62,17 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
 
               toggleButton.addEventListener("click", () => this.toggleQuotes(windowId));
 
+              if (xulAppInfo.version < "91") {
+                let toggleQuotes = recentWindow.document.getElementById("quotes_dillinger-messageDisplayAction-toolbarbutton");
+                if (toggleQuotes == null) return;
+                toggleQuotes.setAttribute("accesskey", "Q");
+              }
+
               if (firstQuote) {
                 firstQuote.insertAdjacentElement("afterbegin", toggleButton);
 
                 let firstWrap = recentContent.document.getElementsByTagName("pre").item(1);
-                if (firstWrap) firstWrap.setAttribute("style", "display: inline-flex;"); // fix the first quote if wrapped
+                if (firstWrap) firstWrap.setAttribute("style", "display: inline;"); // fix the first quote if wrapped
 
                 if (messagePane.getAttribute("quotescollapsed") == "collapsed") {
                   messagePane.setAttribute("persist", "quotescollapsed");
