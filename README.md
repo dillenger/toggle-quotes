@@ -9,3 +9,4 @@ Now provides basic collapsing of all quotes in a message, no other add-ons are n
 The functionality that was previously provided by QuoteCollapse is now included in Quote Colors & Collapse.
 Please install Quote Colors & Collapse if you want that functionality, don't use both at the same time.
 
+Many thanks to John Bieling for his help with the move from browser_action to message_display_action and make experiment window dependent.

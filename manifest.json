@@ -34,7 +34,7 @@
     "gecko": {
       "id": "quotes@dillinger",
       "strict_min_version": "78.0",
-      "strict_max_version": "95.0"
+      "strict_max_version": "102.0"
     }
   },
   "icons": {

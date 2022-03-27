@@ -1,5 +1,10 @@
 Changelog for Toggle Quotes
 
+3.2
+Moved the toolbar button to the Message Header Toolbar.
+Now also works in messages opened in separate windows.
+Improved the appearance of wrapped quotes.
+
 3.1
 Complete rewrite for Thunderbird 78 and 91, necessary after development of QuoteCollapse stopped.
 Now provides basic collapsing of all quotes in a message, no other add-ons are needed.
