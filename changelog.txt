@@ -1,5 +1,9 @@
 Changelog for Toggle Quotes
 
+3.3
+Fixed twisty icons for Thunderbird 103.
+Set minimum Thunderbird version to 91.
+
 3.2
 Moved the toolbar button to the Message Header Toolbar.
 Now also works in messages opened in separate windows.

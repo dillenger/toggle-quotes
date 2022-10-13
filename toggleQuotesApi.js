@@ -1,7 +1,6 @@
 var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm");
 var { ExtensionSupport } = ChromeUtils.import("resource:///modules/ExtensionSupport.jsm");
 var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
-var xulAppInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
 
 var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {
@@ -18,28 +17,16 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
               if (messagePane.getAttribute("quotescollapsed") == "collapsed") {
                 messagePane.removeAttribute("quotescollapsed");
                 for (let e of otherQuotes) {e.setAttribute("style", "overflow: unset; height: unset;");};
-                if (xulAppInfo.version < "91") {
-                  firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                    background-image: url(chrome://global/skin/icons/twisty-expanded.svg); padding-block: .5ex;\
-                    background-repeat: no-repeat; background-position-x: 2px; background-position-y: .4ex; background-size: 1em;");
-                } else {
-                  firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                    background-image: url(chrome://global/skin/icons/arrow-down-12.svg); padding-bottom: .6ex;\
-                    background-repeat: no-repeat; background-position-x: 1px; background-position-y: .4ex; background-size: 1em;");
-                }
+                firstQuote.setAttribute("style", "overflow: unset; height: unset;\
+                  background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg); padding-bottom: .6ex;\
+                  background-repeat: no-repeat; background-position-x: 1px; background-position-y: .4ex; background-size: 1em;");
               } else {
                 messagePane.setAttribute("quotescollapsed", "collapsed");
                 messagePane.setAttribute("persist", "quotescollapsed");
                 for (let e of otherQuotes) {e.setAttribute("style", "overflow: hidden; height: 2ex; padding-bottom: .6ex;");};
-                if (xulAppInfo.version < "91") {
-                  firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
-                    background-image: url(chrome://global/skin/icons/twisty-collapsed.svg); padding-block: .5ex;\
-                    background-repeat: no-repeat;background-position-x: 3px; background-position-y: center; background-size: 1em;");
-                } else {
-                  firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
-                    background-image: url(chrome://global/skin/icons/arrow-right-12.svg); padding-bottom: .6ex;\
-                    background-repeat: no-repeat;background-position-x: 1px; background-position-y: center; background-size: 1em;");
-                }
+                firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
+                  background-image: url(chrome://messenger/skin/overrides/arrow-right-12.svg); padding-bottom: .6ex;\
+                  background-repeat: no-repeat;background-position-x: 1px; background-position-y: center; background-size: 1em;");
               }
             };
           }
@@ -62,41 +49,23 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
 
               toggleButton.addEventListener("click", () => this.toggleQuotes(windowId));
 
-              if (xulAppInfo.version < "91") {
-                let toggleQuotes = recentWindow.document.getElementById("quotes_dillinger-messageDisplayAction-toolbarbutton");
-                if (toggleQuotes == null) return;
-                toggleQuotes.setAttribute("accesskey", "Q");
-              }
-
               if (firstQuote) {
                 firstQuote.insertAdjacentElement("afterbegin", toggleButton);
 
                 let firstWrap = recentContent.document.getElementsByTagName("pre").item(1);
                 if (firstWrap) firstWrap.setAttribute("style", "display: inline;"); // fix the first quote if wrapped
 
-                if (messagePane.getAttribute("quotescollapsed") == "collapsed") {
+                if ((messagePane.getAttribute("quotescollapsed") == "collapsed") || (messagePane.getAttribute("persistcollapsed") == "collapsed")) {
                   messagePane.setAttribute("persist", "quotescollapsed");
                   for (let e of otherQuotes) {e.setAttribute("style", "overflow: hidden; height: 2ex; padding-bottom: .6ex;");};
-                  if (xulAppInfo.version < "91") {
-                    firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
-                      background-image: url(chrome://global/skin/icons/twisty-collapsed.svg); padding-block: .5ex;\
-                      background-repeat: no-repeat;background-position-x: 3px; background-position-y: center; background-size: 1em;");
-                  } else {
-                    firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
-                      background-image: url(chrome://global/skin/icons/arrow-right-12.svg); padding-bottom: .6ex;\
-                      background-repeat: no-repeat;background-position-x: 1px; background-position-y: center; background-size: 1em;");
-                  }
+                  firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\
+                    background-image: url(chrome://messenger/skin/overrides/arrow-right-12.svg); padding-bottom: .6ex;\
+                    background-repeat: no-repeat;background-position-x: 1px; background-position-y: center; background-size: 1em;");
                 } else {
                   for (let e of otherQuotes) {e.setAttribute("style", "overflow: unset; height: unset;");};
-                  if (xulAppInfo.version < "91") {
                   firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                    background-image: url(chrome://global/skin/icons/twisty-expanded.svg); padding-block: .5ex;\
+                    background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg); padding-block: .5ex;\
                     background-repeat: no-repeat; background-position-x: 2px; background-position-y: .4ex; background-size: 1em;");
-                  } else {
-                  firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                    background-image: url(chrome://global/skin/icons/arrow-down-12.svg); padding-bottom: .6ex;\
-                    background-repeat: no-repeat; background-position-x: 1px; background-position-y: .4ex; background-size: 1em;");
-                  }
                 }
               };
             });
