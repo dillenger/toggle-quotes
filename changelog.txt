@@ -1,5 +1,9 @@
 Changelog for Toggle Quotes
 
+4.0
+Update for Thunderbird 111 and beyond.
+Set minimum Thunderbird version to 111.
+
 3.3
 Fixed twisty icons for Thunderbird 103.
 Set minimum Thunderbird version to 91.
