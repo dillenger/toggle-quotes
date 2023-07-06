@@ -3,7 +3,7 @@
   "name": "Toggle Quotes",
   "description": "Adds a Toggle Quotes button, allows to collapse quotes",
   "homepage_url": "https://addons.thunderbird.net/en-US/thunderbird/addon/toggle-quotes/",
-  "version": "4.0",
+  "version": "4.2",
   "experiment_apis": {
     "toggleQuotesApi": {
       "schema": "schema.json",
@@ -34,7 +34,7 @@
     "gecko": {
       "id": "quotes@dillinger",
       "strict_min_version": "111.0",
-      "strict_max_version": "116.*"
+      "strict_max_version": "*"
     }
   },
   "icons": {

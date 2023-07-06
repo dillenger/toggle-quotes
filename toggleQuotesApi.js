@@ -7,7 +7,7 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
     return {
       toggleQuotesApi: {
         async toggleQuotes(windowId) {
-          let browser = Services.wm.getMostRecentBrowserWindow().getBrowser();
+          let browser = context.extension.windowManager.get(windowId, context).window.getBrowser();
           if (browser) {
             let recentContent = browser.contentWindow;
             if (recentContent) {
@@ -33,15 +33,14 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
           }
         },
         async loadButton(windowId) {
-          let browser = Services.wm.getMostRecentBrowserWindow().getBrowser();
+          let browser = context.extension.windowManager.get(windowId, context).window.getBrowser();
           if (browser) {
             let recentContent = browser.contentWindow;
             if (recentContent) {
               let otherQuotes = recentContent.document.querySelectorAll("blockquote");
               let firstQuote = recentContent.document.querySelector("blockquote");
               let toggleButton = recentContent.document.querySelector("button");
-              if (toggleButton) toggleButton.remove(); // remove it first to avoid duplicates
-              toggleButton = recentContent.document.createElement("button");
+              if (!toggleButton) toggleButton = recentContent.document.createElement("button");
               toggleButton.setAttribute("style", "background-color: transparent;\
                 border-color: transparent; margin-inline: -5px 2px; padding-top: 10px;");
               toggleButton.addEventListener("click", () => this.toggleQuotes(windowId));

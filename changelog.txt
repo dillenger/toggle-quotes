@@ -1,5 +1,11 @@
 Changelog for Toggle Quotes
 
+4.2
+Minor first quote twisty update.
+
+4.1
+Fixed for messages opened in separate windows.
+
 4.0
 Update for Thunderbird 111 and beyond.
 Set minimum Thunderbird version to 111.
