@@ -48,7 +48,7 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
                 firstQuote.insertAdjacentElement("afterbegin", toggleButton);
                 let firstWrap = recentContent.document.getElementsByTagName("pre").item(1);
                 if (firstWrap) firstWrap.setAttribute("style", "display: inline;"); // fix the first quote if wrapped
-                if ((browser.getAttribute("quotescollapsed") == "collapsed") || (browser.getAttribute("persistcollapsed") == "collapsed")) {
+                if (browser.getAttribute("quotescollapsed") == "collapsed") {
                   browser.setAttribute("persist", "quotescollapsed");
                   for (let e of otherQuotes) {e.setAttribute("style", "overflow: hidden; height: 2ex; padding-bottom: .6ex;");};
                   firstQuote.setAttribute("style", "overflow: hidden; height: 2ex;\

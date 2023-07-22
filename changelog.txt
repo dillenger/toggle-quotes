@@ -1,7 +1,7 @@
 Changelog for Toggle Quotes
 
 4.2
-Minor first quote twisty update.
+Minor first quote twisty update & cleanup.
 
 4.1
 Fixed for messages opened in separate windows.
