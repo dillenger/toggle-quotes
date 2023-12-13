@@ -18,7 +18,7 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
                   browser.removeAttribute("quotescollapsed");
                   for (let e of otherQuotes) {e.setAttribute("style", "overflow: unset; height: unset;");};
                   firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                    background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg); padding-block: .5ex;\
+                    background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg); padding-bottom: .3ex;\
                     background-repeat: no-repeat; background-position-x: 1px; background-position-y: .4ex; background-size: 1em;");
                 } else {
                   browser.setAttribute("quotescollapsed", "collapsed");
@@ -57,7 +57,7 @@ var toggleQuotesApi = class extends ExtensionCommon.ExtensionAPI {
                 } else {
                   for (let e of otherQuotes) {e.setAttribute("style", "overflow: unset; height: unset;");};
                   firstQuote.setAttribute("style", "overflow: unset; height: unset;\
-                    background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg); padding-block: .5ex;\
+                    background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg); padding-bottom: .3ex;\
                     background-repeat: no-repeat; background-position-x: 2px; background-position-y: .4ex; background-size: 1em;");
                 }
               };
