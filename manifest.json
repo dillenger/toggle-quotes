@@ -45,7 +45,7 @@
       "suggested_key": {
         "default": "Alt+Q"
       },
-      "description": "Toggle all quotes"
+      "description": "Toggle viewing quotes collapsed"
     }
   },
   "permissions": [
