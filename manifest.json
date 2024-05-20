@@ -30,11 +30,11 @@
     "default_label": "Quotes",
     "default_icon": "toggleQuotes24.png"
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "quotes@dillinger",
       "strict_min_version": "111.0",
-      "strict_max_version": "127.*"
+      "strict_max_version": "128.*"
     }
   },
   "icons": {
