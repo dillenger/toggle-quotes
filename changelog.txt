@@ -1,5 +1,8 @@
 Changelog for Toggle Quotes
 
+4.3
+ESMified the add-on.
+
 4.2
 Minor first quote twisty update & cleanup.
 
