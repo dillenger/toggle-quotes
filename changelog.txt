@@ -2,6 +2,8 @@ Changelog for Toggle Quotes
 
 4.3
 ESMified the add-on.
+Set minimum version to Thunderbird 128.0.
+Set maximum version to Thunderbird 136.*.
 
 4.2
 Minor first quote twisty update & cleanup.
