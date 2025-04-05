@@ -1,9 +1,12 @@
 browser.messageDisplayAction.onClicked.addListener((tab, info) => {
-  browser.toggleQuotesApi.toggleQuotes(tab.windowId);
+  messenger.tabs.executeScript(tab.id, {
+    code: `toggleQuotes();`
+  })
 });
+
 
 browser.messageDisplay.onMessageDisplayed.addListener((tab, message) => {
-  browser.toggleQuotesApi.loadButton(tab.windowId);
+  messenger.tabs.executeScript(tab.id, {
+    file: "/toggle_quotes.js"
+  });
 });
-
-//browser.toggleQuotesApi.loadButton();

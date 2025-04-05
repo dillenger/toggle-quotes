@@ -1,5 +1,10 @@
 Changelog for Toggle Quotes
 
+4.4
+Replaces Experiment by messageDisplayScript.
+Set minimum version to Thunderbird 136.0
+Remove maximum version restriction.
+
 4.3
 ESMified the add-on.
 Set minimum version to Thunderbird 128.0.
