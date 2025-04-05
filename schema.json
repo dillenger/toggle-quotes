@@ -1,0 +1,31 @@
+[
+  {
+    "namespace": "toggleQuotesApi",
+    "functions": [
+      {
+        "name": "toggleQuotes",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "windowId",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "loadButton",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "windowId",
+            "optional": true
+          }
+        ]
+      }
+    ]
+  }
+]
