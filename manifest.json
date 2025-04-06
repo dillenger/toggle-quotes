@@ -5,6 +5,7 @@
   "homepage_url": "https://addons.thunderbird.net/en-US/thunderbird/addon/toggle-quotes/",
   "version": "4.4",
   "background": {
+    "type": "module",
     "scripts": [
       "background.js"
     ]
@@ -32,6 +33,7 @@
     }
   },
   "permissions": [
+    "messagesRead",
     "messagesModify",
     "storage"
   ]

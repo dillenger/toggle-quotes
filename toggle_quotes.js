@@ -2,7 +2,7 @@ async function updateQuotes(quotesCollapsed) {
   let otherQuotes = document.querySelectorAll("blockquote");
   let firstQuote = document.querySelector("blockquote");
   if (firstQuote) {
-    if (quotesCollapsed) {
+    if (!quotesCollapsed) {
       for (let e of otherQuotes) {
         e.setAttribute(
           "style",
@@ -66,10 +66,13 @@ async function init() {
     updateQuotes(quotesCollapsed);
   };
 
-  // Allow the background to toggle us.
+  // Allow the background to talk to us.
   browser.runtime.onMessage.addListener(message => {
     switch (message?.command) {
-      case "updateQuotes": return Promise.resolve(updateQuotes(message.quotesCollapsed))
+      case "updateQuotes":
+        return Promise.resolve(updateQuotes(message.quotesCollapsed))
+      case "toggleQuotesLoaded":
+        return Promise.resolve(true);
     }
     // The received message was not for, us. Return false to let other listeners
     // get a chance to evaluate the message.
