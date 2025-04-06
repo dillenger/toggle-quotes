@@ -1,4 +1,4 @@
-async function updateQuotes(quotesCollapsed) {
+function updateQuotes(quotesCollapsed) {
   let otherQuotes = document.querySelectorAll("blockquote");
   let firstQuote = document.querySelector("blockquote");
   if (firstQuote) {
@@ -70,7 +70,7 @@ async function init() {
   browser.runtime.onMessage.addListener(message => {
     switch (message?.command) {
       case "updateQuotes":
-        return Promise.resolve(updateQuotes(message.quotesCollapsed))
+        return Promise.resolve(updateQuotes(message.quotesCollapsed));
       case "toggleQuotesLoaded":
         return Promise.resolve(true);
     }
