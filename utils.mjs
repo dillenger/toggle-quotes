@@ -1,11 +1,11 @@
 export async function getQuotesCollapsed(tabId) {
-  return browser.storage.session
+  return browser.storage.local
     .get({ [`quotes_collapsed_in_tab_${tabId}`]: false })
     .then(rv => rv[`quotes_collapsed_in_tab_${tabId}`]);
 }
 
 export async function setQuotesCollapsed(tabId, value) {
-  return browser.storage.session
+  return browser.storage.local
     .set({ [`quotes_collapsed_in_tab_${tabId}`]: value });
 }
 
