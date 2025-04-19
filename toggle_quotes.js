@@ -9,7 +9,7 @@ function updateQuotes(quotesCollapsed) {
           `overflow: unset;
            height: unset;
            background-color: rgba(128,128,128,0.5);
-           margin-inline: 1em;
+           margin-inline: 0px;
            padding-inline: 1ex;`
         );
       };
@@ -19,7 +19,7 @@ function updateQuotes(quotesCollapsed) {
          height: unset;
          background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg);
          background-color: rgba(128,128,128,0.5);
-         margin-inline: 1em;
+         margin-inline: 0px;
          padding-inline: 1ex;
          padding-bottom: .3ex;
          background-repeat: no-repeat;
@@ -34,7 +34,7 @@ function updateQuotes(quotesCollapsed) {
           `overflow: hidden;
            height: 2ex;
            background-color: rgba(128,128,128,0.5);
-           margin-inline: 1em;
+           margin-inline: 0px;
            padding-inline: 1ex;
            padding-bottom: .6ex;`);
       };
@@ -44,7 +44,7 @@ function updateQuotes(quotesCollapsed) {
          height: 2ex;
          background-image: url(chrome://messenger/skin/overrides/arrow-right-12.svg);
          background-color: rgba(128,128,128,0.5);
-         margin-inline: 1em;
+         margin-inline: 0px;
          padding-inline: 1ex;
          padding-bottom: .6ex;
          background-repeat: no-repeat;
