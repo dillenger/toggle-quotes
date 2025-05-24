@@ -17,15 +17,16 @@ function updateQuotes(quotesCollapsed) {
         "style",
         `overflow: unset;
          height: unset;
-         background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg);
          background-color: rgba(128,128,128,0.5);
+         background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg);
+         background-position-x: 1px;
+         background-position-y: .4ex;
+         background-repeat: no-repeat;
+         background-size: 1em;
          margin-inline: 0px;
          padding-inline: 1ex;
          padding-bottom: .3ex;
-         background-repeat: no-repeat;
-         background-position-x: 1px;
-         background-position-y: .4ex;
-         background-size: 1em;`
+         border-inline-start: 2px solid var(--color-primary-default);`
       );
     } else {
       for (let e of otherQuotes) {
@@ -42,15 +43,16 @@ function updateQuotes(quotesCollapsed) {
         "style",
         `overflow: hidden;
          height: 2ex;
-         background-image: url(chrome://messenger/skin/overrides/arrow-right-12.svg);
          background-color: rgba(128,128,128,0.5);
-         margin-inline: 0px;
-         padding-inline: 1ex;
-         padding-bottom: .6ex;
-         background-repeat: no-repeat;
+         background-image: url(chrome://messenger/skin/overrides/arrow-right-12.svg);
          background-position-x: 1px;
          background-position-y: center;
-         background-size: 1em;`
+         background-repeat: no-repeat;
+         background-size: 1em;
+         border-inline-start: 2px solid var(--color-primary-default);
+         margin-inline: 0px;
+         padding-inline: 1ex;
+         padding-bottom: .6ex;`
       );
     }
   };
