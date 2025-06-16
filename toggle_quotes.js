@@ -23,10 +23,10 @@ function updateQuotes(quotesCollapsed) {
          background-position-y: .4ex;
          background-repeat: no-repeat;
          background-size: 1em;
+         border-inline-start: 2px solid rgb(128,128,128);
          margin-inline: 0px;
          padding-inline: 1ex;
-         padding-bottom: .3ex;
-         border-inline-start: 2px solid var(--color-primary-default);`
+         padding-bottom: .3ex;`
       );
     } else {
       for (let e of otherQuotes) {
@@ -37,7 +37,8 @@ function updateQuotes(quotesCollapsed) {
            background-color: rgba(128,128,128,0.5);
            margin-inline: 0px;
            padding-inline: 1ex;
-           padding-bottom: .6ex;`);
+           padding-bottom: .6ex;`
+        );
       };
       firstQuote.setAttribute(
         "style",
@@ -49,7 +50,7 @@ function updateQuotes(quotesCollapsed) {
          background-position-y: center;
          background-repeat: no-repeat;
          background-size: 1em;
-         border-inline-start: 2px solid var(--color-primary-default);
+         border-inline-start: 2px solid rgb(128,128,128);
          margin-inline: 0px;
          padding-inline: 1ex;
          padding-bottom: .6ex;`
