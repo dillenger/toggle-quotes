@@ -1,7 +1,7 @@
 Changelog for Toggle Quotes
 
 4.5
-Improved the appearance of gmail and other html quotes.
+Improved the appearance of blockquotes without type.
 
 4.4
 Replaced Experiment by messageDisplayScript.
