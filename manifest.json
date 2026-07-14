@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Toggle Quotes",
+  "name": "Toggle Quotes (Quote Collapse)",
   "description": "Adds a Toggle Quotes button, allows to collapse quotes",
   "homepage_url": "https://addons.thunderbird.net/en-US/thunderbird/addon/toggle-quotes/",
   "version": "4.5",
