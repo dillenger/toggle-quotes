@@ -18,7 +18,7 @@ function updateQuotes(quotesCollapsed) {
         `overflow: unset;
          height: unset;
          background-color: rgba(128,128,128,0.5);
-         background-image: url(chrome://messenger/skin/overrides/arrow-down-12.svg);
+         background-image: url("data:image/svg+xml;base64,PCEtLSBUaGlzIFNvdXJjZSBDb2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljCiAgIC0gTGljZW5zZSwgdi4gMi4wLiBJZiBhIGNvcHkgb2YgdGhlIE1QTCB3YXMgbm90IGRpc3RyaWJ1dGVkIHdpdGggdGhpcwogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8vbW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9ImNvbnRleHQtZmlsbCI+CiAgPHBhdGggZD0iTTYgNi43NWwzLjIyLTMuMjJjLjcxLS43IDEuNzcuMzYgMS4wNiAxLjA3TDYuNTMgOC4zNGMtLjMuMy0uNzcuMy0xLjA2IDBMMS43MiA0LjU5Yy0uNjYtLjcuMzUtMS43MiAxLjA2LTEuMDZ6Ii8+Cjwvc3ZnPgo=");
          background-position-x: 1px;
          background-position-y: .4ex;
          background-repeat: no-repeat;
@@ -45,7 +45,7 @@ function updateQuotes(quotesCollapsed) {
         `overflow: hidden;
          height: 2ex;
          background-color: rgba(128,128,128,0.5);
-         background-image: url(chrome://messenger/skin/overrides/arrow-right-12.svg);
+         background-image: url("data:image/svg+xml;base64,PCEtLSBUaGlzIFNvdXJjZSBDb2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljCiAgIC0gTGljZW5zZSwgdi4gMi4wLiBJZiBhIGNvcHkgb2YgdGhlIE1QTCB3YXMgbm90IGRpc3RyaWJ1dGVkIHdpdGggdGhpcwogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8vbW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9ImNvbnRleHQtZmlsbCI+CiAgPHBhdGggZD0iTTcuMjUgNkw0LjAzIDIuNzhBLjc1Ljc1IDAgMDE1LjEgMS43MmwzLjc0IDMuNzVjLjMuMy4zLjc3IDAgMS4wNmwtMy43NSAzLjc1YS43NS43NSAwIDAxLTEuMDYtMS4wNnoiLz4KPC9zdmc+Cg==");
          background-position-x: 1px;
          background-position-y: center;
          background-repeat: no-repeat;
